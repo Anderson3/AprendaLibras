@@ -1,0 +1,775 @@
+﻿
+
+
+define mingau = Character("Mingau")
+define willy = Character("Willy")
+define eliseu = Character("Eliseu")
+
+define usuario = Character("[nome_usuario]")
+
+image quadro = "quadro_branco"
+image fundo0 = "praca"
+image fundo1 = "bgpark"
+image telajogo = "tela_jogo"
+image infor_sobre = "informacao_sobre.png"
+
+image simbolo_libras = "simbolo libras.png"
+image comunicacao01 = "comunicacao libras 01.png"
+image comunicacao02 = "comunicacao libras 02.png"
+image comunicacao03 = "comunicacao libras 03.png"
+image simbolo_acerto = "simbolo acerto.png"
+image simbolo_erro = "simbolo erro.png"
+
+image gato = "gato.png"
+image cachorro = "cachorro.png"
+image abacaxi = "abacaxi.png"
+image carro = "carro.png"
+image escola = "escola.png"
+image livro = "livro.png"
+image caneta = "caneta.png"
+image dado = "dado.png"
+image bola = "bola.png"
+image barco = "barco.png"
+
+image alfabeto_completo = "libras_alfabeto_completo.png"
+image letra_a = "libras_a.png"
+image letra_b = "libras_b.png"
+image letra_c = "libras_c.png"
+image letra_d = "libras_d.png"
+image letra_e = "libras_e.png"
+image letra_f = "libras_f.png"
+image letra_g = "libras_g.png"
+image letra_h = "libras_h.png"
+image letra_i = "libras_i.png"
+image letra_j = "libras_j.png"
+image letra_k = "libras_k.png"
+image letra_l = "libras_l.png"
+image letra_m = "libras_m.png"
+image letra_n = "libras_n.png"
+image letra_o = "libras_o.png"
+image letra_p = "libras_p.png"
+image letra_q = "libras_q.png"
+image letra_r = "libras_r.png"
+image letra_s = "libras_s.png"
+image letra_t = "libras_t.png"
+image letra_u = "libras_u.png"
+image letra_v = "libras_v.png"
+image letra_x = "libras_x.png"
+image letra_y = "libras_y.png"
+image letra_z = "libras_z.png"
+image letra_w = "libras_w.png"
+
+transform imagem_quadro:
+    #xzoom 2.0
+    #yzoom 2.0
+    pos (0.65, 0.4) 
+    anchor (0.5, 0.5)
+
+transform imagem_quadro_alfabeto:
+    xzoom 0.6
+    yzoom 0.6
+    pos (0.65, 0.4) 
+    anchor (0.5, 0.5)
+
+transform simbolo_tela_jogo:
+    xzoom 0.8
+    yzoom 0.8
+    pos (0.65, 0.3) 
+    anchor (0.5, 0.5)
+
+transform imagem_tela_jogo:
+    xzoom 0.9
+    yzoom 0.9
+    pos (0.65, 0.45) 
+    anchor (0.5, 0.5)
+
+
+
+image mingau = "gato1"
+image willy = "gato2"
+image eliseu = "gato3"
+
+
+screen menu_opcoes():
+
+    imagemap:
+        ground "menu jogo att"
+        hover "menu jogo hover att"
+
+        #Hotspot Informação Libras
+        hotspot (375-300, 187, 2.5*158,2*516) clicked Jump ("informacaoLibras") activate_sound "mouse click.mp3"
+        #Hotspot Alfabeto em libras
+        hotspot (537-50, 714, 3*158,516) clicked Jump ("alfabetoLibras") activate_sound "mouse click.mp3"
+        #Hotspot Exercícios
+        hotspot (950, 520, 2.5*158,516) clicked Jump ("jogos") activate_sound "mouse click.mp3"
+        #Hotspot Sobre
+        hotspot (1355, 700, 2.5*158,516) clicked Jump ("sobre") activate_sound "mouse click.mp3"
+        #hotspot (eixo x, eixo y, largura, altura) clicked Jump ("informacaoLibras")
+
+screen botoes_auxiliares():
+    #modal True
+
+    imagebutton:
+        idle "botao_home.png" 
+        hover "botao_home_hover.png" 
+        xalign 0.98 yalign 0.95
+        focus_mask True 
+        activate_sound 'mouse click.mp3'        
+        action [Function(renpy.hide_screen, "pontuacao_jogo"), SetVariable("quant_acertos", 0), SetVariable("quant_erros", 0), 
+                Function(renpy.hide, "simbolo_acerto"), Function(renpy.hide, "simbolo_erro"),Jump("introducao")]
+ 
+    imagebutton:
+        idle "botao_som.png" 
+        hover "botao_som_hover.png" 
+        xalign 0.92 yalign 0.95
+        focus_mask True 
+        activate_sound 'mouse click.mp3'
+        action Preference("all mute", "toggle")
+
+'''
+screen botoes_jogo():
+
+    imagebutton:
+        idle "botao_home.png" 
+        hover "botao_home_hover.png"
+        xalign 0.85 yalign 0.2
+        focus_mask True 
+        activate_sound 'mouse click.mp3'
+        #action Jump("introducao")
+    imagebutton:
+        idle "botao_som.png" 
+        hover "botao_som_hover.png" 
+        xalign 0.85 yalign 0.3
+        focus_mask True 
+        activate_sound 'mouse click.mp3'
+        #action Preference("all mute", "toggle")
+    imagebutton:
+        idle "botao_som.png" 
+        hover "botao_som_hover.png" 
+        xalign 0.85 yalign 0.4
+        focus_mask True 
+        activate_sound 'mouse click.mp3'
+        #action Preference("all mute", "toggle")
+'''
+
+screen pontuacao_jogo():
+    #Acertos
+    text "[quant_acertos]" xpos 0.59 ypos 0.685
+    #Erros
+    text "[quant_erros]" xpos 0.81 ypos 0.685
+    
+
+
+
+init python:
+
+    def acessarSite():
+        import webbrowser
+        webbrowser.open_new("http://google.com")
+
+    def botaoVoltar():
+        #if botaoVoltarAtivo == True:
+        ui.frame(xalign=0.93,yalign=0.95)
+        ui.imagebutton("botao_home.png", "botao_home.png", clicked=Jump("introducao"), focus_mask = True)
+
+    def botaoSair():
+        #if botaoSairAtivo == True: 
+        ui.frame(xalign=.98,yalign=.95)
+        ui.imagebutton("botao_som.png", "botao_som.png", clicked=Jump("sair"), focus_mask = True)
+
+    #Função de testagem dos jogos-------------------------------------------------------------------------
+    global quant_acertos
+    global quant_erros
+
+    quant_acertos = quant_erros = 0
+
+    def gerarDesafio():
+        global palavra_sorteada
+        global quant_acertos
+        global quant_erros
+
+        palavra_sorteada = ""
+
+        lista_palavras = [
+            "gato", "cachorro", "abacaxi", "carro", "escola", "livro", "caneta", "dado", "bola", "barco"
+        ]
+        palavra_sorteada = renpy.random.choice(lista_palavras)
+        renpy.show(palavra_sorteada, at_list=[imagem_tela_jogo])
+        renpy.notify(palavra_sorteada)
+
+
+    def verificarResultados(resultado_usuario):
+        global palavra_sorteada
+        global quant_acertos
+        global quant_erros
+        
+        if resultado_usuario.lower() == palavra_sorteada:
+            quant_acertos += 1
+            renpy.notify("Acerto")
+            renpy.show("simbolo_acerto", at_list=[simbolo_tela_jogo])
+            renpy.play("som acerto.mp3")
+            renpy.say(eliseu, "Parabéns! Você acertou!!!")
+            
+        else:
+            quant_erros += 1
+            renpy.notify("Errou")
+            renpy.show("simbolo_erro", at_list=[simbolo_tela_jogo])
+            renpy.play("som erro.mp3")
+            renpy.say(eliseu, "Infelizmente você errou. {p} A resposta correta era: %(palavra_sorteada)s. Mais sorte na próxima vez.")
+            
+        renpy.hide(palavra_sorteada)
+        renpy.hide("simbolo_acerto")
+        renpy.hide("simbolo_erro")
+        
+        if quant_acertos >= 5:
+            quant_acertos = quant_erros = 0
+            renpy.hide(palavra_sorteada)
+            renpy.hide_screen("pontuacao_jogo")
+            renpy.jump("jogos_vitoria")
+        elif quant_erros >= 3:
+            renpy.hide(palavra_sorteada)
+            quant_acertos = quant_erros = 0
+            renpy.hide_screen("pontuacao_jogo")
+            renpy.jump("jogos_derrota")
+        
+        
+
+
+    
+    #config.overlay_functions.append(botaoVoltar)
+    #config.overlay_functions.append(botaoSair)
+
+
+label start:
+
+    $botaoSairAtivo = True
+    $botaoVoltarAtivo = True
+
+    scene fundo0
+
+    show mingau
+    
+
+    mingau "Olá amiguinho! Tudo bem com você? Seja bem-vindo ao Aprenda Libras."
+    $nome_usuario = renpy.input("Qual é o seu nome?")
+    if nome_usuario == "":
+        "Tudo bem, caso você não queira me falar o seu nome. Então vou chamar você de colega."
+        $nome_usuario = "colega"
+
+    mingau "Olá %(nome_usuario)s! Me chamo mingau, e hoje vamos embarcar em uma aventura com libras."
+    jump introducao
+
+
+label introducao:
+
+    call limpar_tudo
+
+    play music "marimba.ogg"  fadein 1.5
+
+    show screen botoes_auxiliares()
+    with dissolve
+    call screen menu_opcoes
+    
+
+    '''
+    mingau "Você está preparado para ingressar nessa jornada?"
+    menu:
+        "Sim. Mas antes quero saber o que é Libras.":
+            jump informacaoLibras
+        "Sim, eu quero explorar o alfabeto em Libras":
+            jump alfabetoLibras
+        "Ainda não estou preparado.":
+            mingau "Tudo bem. Então em outro momento aprenderemos o alfabeto e libras."
+    '''
+
+
+return
+
+
+label informacaoLibras:
+    scene fundo1
+    hide mingau
+
+    show mingau at center
+    with dissolve
+    mingau "LIBRAS é a Lingua Brasileira de Sinais, {p}é através dela que conseguimos nos comunicar com pessoas que possuem deficiência auditiva."
+   
+    show mingau at left
+    with dissolve
+
+    show simbolo_libras
+    with dissolve
+
+    mingau "A comunicação em Libras se dá através de gestos e sinais com as mãos."
+
+    mingau "... e aprender Libras é importante, pois nos dá mais habilidades de comunicação."
+    
+    hide simbolo_libras
+    show comunicacao01
+    with dissolve
+    show comunicacao02
+    with dissolve
+    show comunicacao03
+    with dissolve
+    mingau "Libras é uma linguagem fácil de aprender e vale muito a pena para fazer novas amizades.{p}Seja muito bem-vindo nessa introdução na Libras e bons estudos."
+
+    hide comunicacao01
+    with dissolve
+    hide comunicacao02
+    with dissolve
+    hide comunicacao03
+    with dissolve
+
+    hide mingau
+    show mingau
+    with dissolve
+    mingau "Espero você nessa jornada."
+
+    jump introducao
+
+
+
+
+label alfabetoLibras:
+    scene fundo1
+    hide mingau
+    play music "som base alfabeto.mp3" fadein 1.5
+
+    show willy
+    with dissolve
+
+    willy "Seja muito bem-vindo, %(nome_usuario)s! {p}Agora vamos aprender o alfabeto em Libras."
+
+    mingau "Estou muito feliz por ter você aqui para aprender comigo."
+    
+    show quadro_branco
+    with dissolve
+
+    #Apresentação Alfabeto em Libras
+    show willy at left
+    with dissolve
+    show alfabeto_completo at imagem_quadro_alfabeto
+    with dissolve
+    willy "Assim como o Alfabeto que aprendemos para construir palavras, existe um Alfabeto em Libras que serve para nos comunicar com outros amiguinhos."
+    #willy "O Alfabeto pode ser visualizado no quadro ao lado..."
+    hide alfabeto_completo
+    
+
+    #Letra A
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_a at imagem_quadro
+    with dissolve
+    mingau "A primeira Letra que iremos aprender é a letra A {p} A letra A é feita com o seguinte sinal"
+    show letra_a
+    
+
+    #Letra B
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_b at imagem_quadro
+    with dissolve
+    mingau "A segunda Letra que iremos aprender é a letra B {p} A letra B é feita com o seguinte sinal"
+    show letra_b
+    
+
+    #Letra C
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_c at imagem_quadro
+    with dissolve
+    mingau "Agora Letra que iremos aprender é a letra C {p} A letra C é feita com o seguinte sinal"
+    show letra_c
+    
+
+    #Letra D
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_d at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra D {p} A letra D é feita com o seguinte sinal"
+    show letra_d
+    
+
+    #Letra E
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_e at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra E {p} A letra E é feita com o seguinte sinal"
+    show letra_e
+    
+
+    #Letra F
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_f at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra F {p} A letra F é feita com o seguinte sinal"
+    show letra_f
+    
+
+
+    #Letra G
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_g at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra G {p} A letra G é feita com o seguinte sinal"
+    show letra_g
+    
+
+    #Letra H
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_h at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra H {p} A letra H é feita com o seguinte sinal"
+    show letra_h
+    
+
+    #Letra I
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_i at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra I {p} A letra I é feita com o seguinte sinal"
+    show letra_i
+    
+
+    #Letra J
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_j at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra J {p} A letra J é feita com o seguinte sinal"
+    show letra_j
+
+
+    #Letra K
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_k at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra K {p} A letra K é feita com o seguinte sinal"
+    show letra_k
+    
+
+    #Letra L
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_l at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra L {p} A letra L é feita com o seguinte sinal"
+    show letra_l
+    
+
+
+    #Letra M
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_m at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra M {p} A letra M é feita com o seguinte sinal"
+    show letra_m
+    
+
+    #Letra N
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_n at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra N {p} A letra N é feita com o seguinte sinal"
+    show letra_n
+    
+
+    #Letra O
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_o at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra O {p} A letra O é feita com o seguinte sinal"
+    show letra_o
+    
+
+    #Letra P
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_p at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra P {p} A letra P é feita com o seguinte sinal"
+    show letra_p
+    
+
+    #Letra Q
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_q at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra Q {p} A letra Q é feita com o seguinte sinal"
+    show letra_q
+    
+
+    #Letra R
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_r at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra R {p} A letra R é feita com o seguinte sinal"
+    show letra_r
+    
+
+
+    #Letra S
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_s at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra S {p} A letra S é feita com o seguinte sinal"
+    show letra_s
+    
+
+    #Letra T
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_t at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra T {p} A letra T é feita com o seguinte sinal"
+    show letra_t
+    
+
+    #Letra U
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_u at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra U {p} A letra U é feita com o seguinte sinal"
+    show letra_u
+    
+
+    #Letra V
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_v at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra V {p} A letra V é feita com o seguinte sinal"
+    show letra_v
+    
+
+    #Letra W
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_w at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra W {p} A letra W é feita com o seguinte sinal"
+    show letra_w
+    
+
+    #Letra X
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_x at imagem_quadro
+    with dissolve
+    mingau "A Letra que iremos aprender é a letra X {p} A letra X é feita com o seguinte sinal"
+    show letra_x
+
+    
+    #Letra Y
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_y at imagem_quadro
+    with dissolve
+    mingau "A penúltima Letra que iremos aprender é a letra Y {p} A letra Y é feita com o seguinte sinal"
+    show letra_y
+    
+
+    #Letra Z
+    show willy at left
+    with dissolve
+    play sound "pagina.mp3"
+    show letra_z at imagem_quadro
+    with dissolve
+    mingau "E a última Letra que iremos aprender é a letra Z {p} A letra Z é feita com o seguinte sinal"
+    show letra_z
+
+
+    hide willy
+    hide quadro
+    
+    show willy
+    with dissolve
+
+    mingau "Pronto! Agora você aprendeu todas as letras do alfabeto em libras. {p} Agora é a hora de praticar com os 'Exercícios'."
+    mingau "Lembre-se de sempre rever esses sinais para lembrar com mais facilidade."
+    mingau "Tchau!"
+
+    hide willy
+    hide quadro
+    jump introducao
+
+
+return
+
+
+
+label jogos:
+    scene fundo1
+    call limpar_tudo
+    play music "som base jogos.mp3" fadein 1.5
+
+    show eliseu
+    with dissolve
+
+    eliseu "Olá %(nome_usuario)s! {p} Você está pronto para testar seus conhecimentos?"
+
+    show eliseu at left
+    with dissolve
+
+    eliseu "Agora é o momento de por em prática o que aprendemos ..."
+
+    show telajogo
+    with moveinright
+
+    #show screen botoes_jogo()
+    with dissolve
+
+    #show questao_tela_jogo()
+    show screen pontuacao_jogo()
+
+    #eliseu "Teste"
+    while True:
+        $gerarDesafio()
+        $resposta_usuario = renpy.input("Qual palavra está escrita na imagem?")
+        $verificarResultados(resposta_usuario)
+
+    hide eliseu
+    #hide screen botoes_jogo
+    jump introducao
+
+
+label jogos_vitoria:
+    scene fundo1
+    call limpar_tudo
+    show eliseu
+    with dissolve
+
+    play sound ("som jogo vencido.wav")
+
+    eliseu "Parabéns %(nome_usuario)s! {p} Você conseguiu reconhecer vários sinais de Libras e identificou várias palavras corretamente. E você obteve bons resultados."
+    eliseu "Fico feliz que tenha aprendido o alfabeto em Libras com facilidade.{p} Muito sucesso nos próximos estudos."
+    eliseu "Até mais, amiguinho!"
+    jump introducao
+
+label jogos_derrota:
+    scene fundo1
+    call limpar_tudo
+    show eliseu
+    with dissolve
+
+    play sound ("som jogo perdido.mp3")
+
+    eliseu "Infelizmente você errou muitas palavras."
+    eliseu "Estude mais o alfabeto em Libras e tente novamente."
+    jump introducao
+
+
+
+
+
+
+
+
+
+label sair:
+    $botaoSairAtivo = False
+    show mingau
+    mingau "Até mais!"
+    return
+
+label sobre:
+    show infor_sobre
+    with dissolve
+    pause
+    #"Este software foi desenvolvido como Trabalho de Conclusão de Curso da Pós-Graduação em Educação Especial do IFMG - Ipatininga."
+    jump introducao
+
+
+#Labels de Controle
+label limpar_tudo:
+    hide quadro_branco
+    hide alfabeto_completo
+    hide telajogo
+    hide simbolo_libras
+    hide comunicacao01
+    hide comunicacao02
+    hide comunicacao03
+    hide infor_sobre
+    hide mingau
+    hide willy
+    hide eliseu
+    hide letra_a 
+    hide letra_b
+    hide letra_c 
+    hide letra_d
+    hide letra_e 
+    hide letra_f
+    hide letra_g 
+    hide letra_h
+    hide letra_i 
+    hide letra_j
+    hide letra_k 
+    hide letra_l
+    hide letra_m 
+    hide letra_n
+    hide letra_o 
+    hide letra_p
+    hide letra_q 
+    hide letra_r
+    hide letra_s 
+    hide letra_t
+    hide letra_u
+    hide letra_v 
+    hide letra_w
+    hide letra_x 
+    hide letra_y
+    hide letra_z
+
+    #renpy.hide("pontuacao_jogo")
+    jump limpar_tela_game
+
+label limpar_tela_game:
+    hide gato 
+    hide cachorro 
+    hide abacaxi 
+    hide carro 
+    hide escola 
+    hide livro 
+    hide caneta 
+    hide dado 
+    hide bola 
+    hide barco

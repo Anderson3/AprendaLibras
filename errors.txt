@@ -1,0 +1,9 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 266: expected an indented block
+        def mudarFundo():
+
+Ren'Py Version: Ren'Py 8.2.3.24061702
+Thu Aug 29 21:09:31 2024
