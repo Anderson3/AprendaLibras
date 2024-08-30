@@ -3,4 +3,6 @@ Jogo digital voltado ao ensino introdutório de LIBRAS. Desenvolvido com Trabalh
 
 ## Download
 ### Windows 
-### MacOs
+https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-1.0-pc.zip
+### MacOs 
+https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-1.0-mac.zip
