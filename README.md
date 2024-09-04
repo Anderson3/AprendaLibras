@@ -25,6 +25,10 @@ As opções básicas do Aprenda Libras são divididas nas informações sobre a 
 
 <br>
 
+## Demonstração
+
+[![Assista ao Vídeo ...](https://img.youtube.com/vi/WXF64cgHjQg/0.jpg)](https://www.youtube.com/watch?v=WXF64cgHjQg)
+
 ## Download
 ### Windows 
 Para baixar o jogo para Windows:<br>
