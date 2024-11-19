@@ -225,7 +225,7 @@ init python:
         ]
         palavra_sorteada = renpy.random.choice(lista_palavras)
         renpy.show(palavra_sorteada, at_list=[imagem_tela_jogo])
-        renpy.notify(palavra_sorteada)
+        #renpy.notify(palavra_sorteada)
 
 
     def verificarResultados(resultado_usuario):
