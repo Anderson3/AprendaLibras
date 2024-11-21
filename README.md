@@ -18,10 +18,10 @@ Aprenda Libras é um minijogo feito com ❤️ linguagem Python e RenPy.
 ## Libras, Alfabeto e Jogos.
 As opções básicas do Aprenda Libras são divididas nas informações sobre a Linguagem Brasileira de Sinais, o alfabeto completo em Libras e a opção de exercícios, que contéum um jogo para testar os conhecimentos na formação de palavras com libras.
 <br>
-<img align="center" src="demonstrativo/demonstração tela 01.png"  width="500">
-<img align="center" src="demonstrativo/demonstração tela 02.png"  width="500">
+<img align="center" src="demonstrativo/demonstração tela 05.png"  width="500">
+<img align="center" src="demonstrativo/demonstração tela 06.png"  width="500">
 <img align="center" src="demonstrativo/demonstração tela 03.png"  width="500">
-<img align="center" src="demonstrativo/demonstração tela 04.png"  width="500">
+<img align="center" src="demonstrativo/demonstração tela 08.png"  width="500">
 
 <br>
 
