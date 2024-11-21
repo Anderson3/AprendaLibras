@@ -30,19 +30,19 @@ As opções básicas do Aprenda Libras são divididas nas informações sobre a 
 [![Assista ao Vídeo ...](https://img.youtube.com/vi/WXF64cgHjQg/0.jpg)](https://www.youtube.com/watch?v=WXF64cgHjQg)
 
 ## Download
-### Windows 
-Para baixar o jogo para Windows:<br>
-https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-1.0-pc.zip
+### Windows / Linux
+Para baixar o jogo para Windows e Linux:<br>
+https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-pc.zip
 ### MacOs 
 Para baixar o jogo para MacOS:<br>
-https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-1.0-mac.zip
+https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-mac.zip
 <br><br>
 
 ## Meta
 Caso necessite de mais detalhes, sugestões, ou tenha críticas ou dúvidas, entre em contato com os endereços abaixo.
 
-Anderson Alves de Aguiar – [@Andersonmath97](https://twitter.com/@a3camus) – andersonalvesmath@hotmail.com
+Ana Paula Abrantes de Paula Lins - anaabrantesdepaula@gmail.com
 
-Ana Paula Abrantes de Paula Lins
+Anderson Alves de Aguiar – [@Andersonmath97](https://twitter.com/@a3camus) – andersonalvesmath@hotmail.com
 
 [https://github.com/Anderson3/AprendaLibras](https://github.com/Anderson3/AprendaLibras)
