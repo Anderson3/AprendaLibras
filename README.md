@@ -43,6 +43,6 @@ Caso necessite de mais detalhes, sugestões, ou tenha críticas ou dúvidas, ent
 
 Ana Paula Abrantes de Paula Lins - anaabrantesdepaula@gmail.com
 
-Anderson Alves de Aguiar – [@Andersonmath97](https://twitter.com/@a3camus) – andersonalvesmath@hotmail.com
+Anderson Alves de Aguiar – [Camus](https://twitter.com/@a3camus) – andersonalvesmath@hotmail.com
 
 [https://github.com/Anderson3/AprendaLibras](https://github.com/Anderson3/AprendaLibras)
