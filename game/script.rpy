@@ -238,7 +238,7 @@ init python:
             renpy.notify("Acerto")
             renpy.show("simbolo_acerto", at_list=[simbolo_tela_jogo])
             renpy.play("som acerto.mp3")
-            renpy.say(luna, "Parabéns! Você acertou!!!")
+            renpy.say(luna, "Parabéns! Você acertou!!! {p} A palavra era: %(palavra_sorteada)s.")
             
         else:
             quant_erros += 1
