@@ -3,7 +3,7 @@
 
 define mingau = Character("Mingau")
 define willy = Character("Willy")
-define eliseu = Character("Eliseu")
+define luna = Character("Luna")
 
 define usuario = Character("[nome_usuario]")
 
@@ -114,7 +114,7 @@ transform imagem_tela_jogo:
 
 image mingau = "gato1"
 image willy = "gato2"
-image eliseu = "gato3"
+image luna = "gato3"
 
 
 screen menu_opcoes():
@@ -238,14 +238,14 @@ init python:
             renpy.notify("Acerto")
             renpy.show("simbolo_acerto", at_list=[simbolo_tela_jogo])
             renpy.play("som acerto.mp3")
-            renpy.say(eliseu, "Parabéns! Você acertou!!!")
+            renpy.say(luna, "Parabéns! Você acertou!!!")
             
         else:
             quant_erros += 1
             renpy.notify("Errou")
             renpy.show("simbolo_erro", at_list=[simbolo_tela_jogo])
             renpy.play("som erro.mp3")
-            renpy.say(eliseu, "Infelizmente você errou. {p} A resposta correta era: %(palavra_sorteada)s. Mais sorte na próxima vez.")
+            renpy.say(luna, "Infelizmente você errou. {p} A resposta correta era: %(palavra_sorteada)s. Mais sorte na próxima vez.")
             
         renpy.hide(palavra_sorteada)
         renpy.hide("simbolo_acerto")
@@ -343,7 +343,7 @@ label informacaoLibras:
     with dissolve
     show comunicacao03
     with dissolve
-    mingau "Libras é uma linguagem bem fácil de aprender e é muito útil para fazer novas amizades.{p}Seja muito bem-vindo ao mundo da Libras e bons estudos."
+    mingau "Libras é uma linguagem bem fácil de aprender e é muito útil para fazer novas amizades.{p}"
 
     hide comunicacao01
     with dissolve
@@ -355,7 +355,7 @@ label informacaoLibras:
     hide mingau
     show mingau
     with dissolve
-    mingau "Espero você nessa jornada."
+    mingau "Seja muito bem-vindo ao mundo da Libras e bons estudos."
 
     jump introducao
 
@@ -372,7 +372,7 @@ label alfabetoLibras:
 
     willy "Seja muito bem-vindo, %(nome_usuario)s! {p}A partir de agora iremos aprender o alfabeto em Libras."
 
-    mingau "Estou muito feliz por ter você aqui."
+    willy "Estou muito feliz por ter você aqui."
     
     show quadro_branco
     with dissolve
@@ -676,15 +676,15 @@ label jogos:
     call limpar_tudo from _call_limpar_tudo_1
     play music "som base jogos.mp3" fadein 1.5
 
-    show eliseu
+    show luna
     with dissolve
 
-    eliseu "Olá %(nome_usuario)s! {p} Você está pronto para testar seus conhecimentos?"
+    luna "Olá %(nome_usuario)s! {p} Você está pronto para testar seus conhecimentos?"
 
-    show eliseu at left
+    show luna at left
     with dissolve
 
-    eliseu "Agora é o momento de por em prática o que aprendemos ...{p} Digite as respostas e tecle ENTER para enviá-las."
+    luna "Agora é o momento de por em prática o que aprendemos ...{p} Digite as respostas e tecle ENTER para enviá-las."
 
     show telajogo
     with moveinright
@@ -695,13 +695,13 @@ label jogos:
     #show questao_tela_jogo()
     show screen pontuacao_jogo()
 
-    #eliseu "Teste"
+    #luna "Teste"
     while True:
         $gerarDesafio()
         $resposta_usuario = renpy.input("Qual palavra está escrita na imagem?")
         $verificarResultados(resposta_usuario)
 
-    hide eliseu
+    hide luna
     #hide screen botoes_jogo
     jump introducao
 
@@ -709,26 +709,26 @@ label jogos:
 label jogos_vitoria:
     scene fundo1
     call limpar_tudo from _call_limpar_tudo_2
-    show eliseu
+    show luna
     with dissolve
 
     play sound ("som jogo vencido.wav")
 
-    eliseu "Parabéns %(nome_usuario)s! {p} Você conseguiu reconhecer vários sinais de Libras e identificou várias palavras corretamente, obtendo bons resultados."
-    eliseu "Fico feliz que tenha aprendido o alfabeto em Libras com facilidade.{p} Muito sucesso nos próximos estudos."
-    eliseu "Até mais, amiguinho!"
+    luna "Parabéns %(nome_usuario)s! {p} Você conseguiu reconhecer vários sinais de Libras e identificou várias palavras corretamente, obtendo bons resultados."
+    luna "Fico feliz que tenha aprendido o alfabeto em Libras com facilidade.{p} Muito sucesso nos próximos estudos."
+    luna "Até mais, amiguinho!"
     jump introducao
 
 label jogos_derrota:
     scene fundo1
     call limpar_tudo from _call_limpar_tudo_3
-    show eliseu
+    show luna
     with dissolve
 
     play sound ("som jogo perdido.mp3")
 
-    eliseu "Infelizmente você errou muitas palavras."
-    eliseu "Estude mais o alfabeto em Libras e tente novamente."
+    luna "Infelizmente você errou muitas palavras."
+    luna "Estude mais o alfabeto em Libras e tente novamente."
     jump introducao
 
 
@@ -765,7 +765,7 @@ label limpar_tudo:
     hide infor_sobre
     hide mingau
     hide willy
-    hide eliseu
+    hide luna
     hide letra_a 
     hide letra_b
     hide letra_c 
