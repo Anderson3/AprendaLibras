@@ -220,3 +220,4 @@ init python:
 ## separados por uma barra.
 
 # define build.itch_project = "renpytom/test-project"
+define build.itch_project = "a3projects/aprenda-libras"

@@ -1,6 +1,5 @@
 ﻿
 
-
 define mingau = Character("Mingau")
 define willy = Character("Willy")
 define luna = Character("Luna")
@@ -153,31 +152,7 @@ screen botoes_auxiliares():
         activate_sound 'mouse click.mp3'
         action Preference("all mute", "toggle")
 
-'''
-screen botoes_jogo():
 
-    imagebutton:
-        idle "botao_home.png" 
-        hover "botao_home_hover.png"
-        xalign 0.85 yalign 0.2
-        focus_mask True 
-        activate_sound 'mouse click.mp3'
-        #action Jump("introducao")
-    imagebutton:
-        idle "botao_som.png" 
-        hover "botao_som_hover.png" 
-        xalign 0.85 yalign 0.3
-        focus_mask True 
-        activate_sound 'mouse click.mp3'
-        #action Preference("all mute", "toggle")
-    imagebutton:
-        idle "botao_som.png" 
-        hover "botao_som_hover.png" 
-        xalign 0.85 yalign 0.4
-        focus_mask True 
-        activate_sound 'mouse click.mp3'
-        #action Preference("all mute", "toggle")
-'''
 
 screen pontuacao_jogo():
     #Acertos
@@ -190,10 +165,6 @@ screen pontuacao_jogo():
 
 
 init python:
-
-    def acessarSite():
-        import webbrowser
-        webbrowser.open_new("http://google.com")
 
     def botaoVoltar():
         #if botaoVoltarAtivo == True:
