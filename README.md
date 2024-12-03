@@ -31,11 +31,14 @@ As opções básicas do Aprenda Libras são divididas nas informações sobre a 
 
 ## Download
 ### Windows / Linux
-Para baixar o jogo para Windows e Linux:<br>
-https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-pc.zip
+Para baixar o jogo para Windows:<br>
+https://github.com/Anderson3/AprendaLibras/releases/download/v1.0.3/AprendaLibras-1.0-win.zip
+###  Linux
+Para baixar o jogo para Linux:<br>
+https://github.com/Anderson3/AprendaLibras/releases/download/v1.0.3/AprendaLibras-1.0-pc.zip
 ### MacOs 
 Para baixar o jogo para MacOS:<br>
-https://github.com/Anderson3/AprendaLibras/blob/main/Execut%C3%A1veis/AprendaLibras-mac.zip
+https://github.com/Anderson3/AprendaLibras/releases/download/v1.0.3/AprendaLibras-1.0-mac.zip
 <br><br>
 
 ## Meta
