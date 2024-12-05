@@ -29,6 +29,8 @@ As opções básicas do Aprenda Libras são divididas nas informações sobre a 
 
 [![Assista ao Vídeo ...](https://img.youtube.com/vi/WXF64cgHjQg/0.jpg)](https://www.youtube.com/watch?v=WXF64cgHjQg)
 
+<br><br>
+
 ## Download
 ### Windows / Linux
 Para baixar o jogo para Windows:<br>
@@ -39,6 +41,12 @@ https://github.com/Anderson3/AprendaLibras/releases/download/v1.0.3/AprendaLibra
 ### MacOs 
 Para baixar o jogo para MacOS:<br>
 https://github.com/Anderson3/AprendaLibras/releases/download/v1.0.3/AprendaLibras-1.0-mac.zip
+<br><br>
+
+## Jogue Online
+### Navegador
+Para jogar online basta acessar o site:<br>
+https://anderson3.github.io/JogoAprendaLibras/
 <br><br>
 
 ## Meta
