@@ -29,7 +29,7 @@ As opções básicas do Aprenda Libras são divididas nas informações sobre a 
 
 [![Assista ao Vídeo ...](https://img.youtube.com/vi/WXF64cgHjQg/0.jpg)](https://www.youtube.com/watch?v=WXF64cgHjQg)
 
-<br><br>
+<br>
 
 ## Download
 ### Windows / Linux
